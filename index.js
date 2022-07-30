@@ -14,5 +14,11 @@ app.use(express.json());
 const PORT = process.env.PORT || 3000;
 
 /////////////////////////////////////////
+var homeRoutes = require("./routers/home.js");
+/////////////////////////////////////////
+
+app.use("/", homeRoutes);
+
+/////////////////////////////////////////
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

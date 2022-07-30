@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cStock</title>
+    <%- include('cssRelated/cssLinks'); %>
+  </head>
+  <body>
+    <section id="full-screen">
+      <canvas class="background"></canvas>
+      <div class="content">
+        <div class="navbar">
+          <a href="/"><img src="images/logo_transparent.png" alt="" /></a>
+        </div>
+        <div class="main-cta">
+          <h1 class="color1" data-aos="zoom-in">Try cStock predictions!</h1>
+          <a href="/explore" class="main-btn">View now</a>
+        </div>
+      </div>
+    </section>
+    <%- include('cssRelated/scripts'); %>
+  </body>
+</html>
