@@ -93,6 +93,39 @@ body {
   background: #f95959;
 }
 
+.searchBar {
+    width: 50%;
+    margin-left: 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px #f95959 solid;
+    border-radius: 50px;
+}
+  
+#searchQueryInput {
+    width: 100%;
+    height: 2.8rem;
+    background: transparent;
+    outline: none;
+    border: none;
+    padding: 0 3.5rem 0 1.5rem;
+    font-size: 1rem;
+    color: #f1f1f1;
+}
+  
+#searchQuerySubmit {
+    width: 3.5rem;
+    height: 2.8rem;
+    margin-left: -3.5rem;
+    background: none;
+    border: none;
+    outline: none;
+}
+  
+#searchQuerySubmit:hover {
+    cursor: pointer;
+}
 
 @media (max-width: 800px) {
     .navbar img {
@@ -104,8 +137,5 @@ body {
         font-size: 40px;
         margin-bottom: 20%;
     }
-    .main-btn {
-        font-size: 20px;
-        padding: 4% 8%;
-    }
+    
 }

@@ -15,8 +15,14 @@
           <a href="/"><img src="images/logo_transparent.png" alt="" /></a>
         </div>
         <div class="main-cta">
-          <h1 class="color1" data-aos="zoom-in">Try cStock predictions!</h1>
-          <a href="/explore" class="main-btn">View now</a>
+          <h1 class="color1" data-aos="zoom-in">Try cStock now!</h1>
+          <form class='searchBar' action="" method="get">
+            <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Type ticker here" value="" />
+            <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+              <%- include('svg/searchIcon'); %>
+            </button>
+          </form>
+          
         </div>
       </div>
     </section>
