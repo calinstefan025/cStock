@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cStock</title>
+    <link rel="shortcut icon" href="/static/images/logo_transparent.png" type="image">
+
     <%- include('cssRelated/cssLinks'); %>
   </head>
   <body>
@@ -28,7 +30,7 @@
         <div class="main-cta">
           <h1 class="color1" data-aos="zoom-in">Try cStock now!</h1>
           <form class='searchBar' id="tickerForm" action="/stock" method="post">
-            <input id="searchQueryInput" type="text" name="tickerInput" placeholder="Type ticker here" value="" />
+            <input id="searchQueryInput" type="text" name="tickerInput" placeholder="Type symbol here" value="" />
             <button id="searchQuerySubmit" type="submit" name="tickerSubmit">
               <%- include('svg/searchIcon'); %>
             </button>

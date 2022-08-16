@@ -17,7 +17,11 @@ router.get("/:ticker/overview", (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.send(data);
+        // res.send(data);
+        res.render('stock' , {
+          name: data.Name,
+          description: data.Description,
+        })
       }
   });
 
