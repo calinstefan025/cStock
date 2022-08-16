@@ -30,15 +30,50 @@ body {
     width: 100vw;
 }
 
-.navbar {
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    
 }
 
-.navbar img {
+nav img {
     width: 170px;
     height: 170px;
 }
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+    margin-right: 5%;
+}
+  
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 13px 13px;
+    position: relative;
+}
+  
+.nav-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+  
+.nav-links ul li::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #f95959;
+    display: block;
+    margin: auto;
+}
+
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+
 
 .main-cta {
     text-align: center;
@@ -128,7 +163,7 @@ body {
 }
 
 @media (max-width: 800px) {
-    .navbar img {
+    nav img {
         width: 100px;
         height: 100px;
     }

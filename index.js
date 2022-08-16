@@ -15,9 +15,12 @@ const PORT = process.env.PORT || 3000;
 
 /////////////////////////////////////////
 var homeRoutes = require("./routers/home.js");
+var stockRoutes = require("./routers/stock.js");
+
 /////////////////////////////////////////
 
 app.use("/", homeRoutes);
+app.use("/stock", stockRoutes);
 
 /////////////////////////////////////////
 
