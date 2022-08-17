@@ -30,6 +30,18 @@
     text-align: justify;
 }
 
+ol {
+    margin-top: 8%;
+}
+
 .list-group-item {
-    background-color: #b5b5b5;
+    background-color: #212534;
+}
+
+.list-group-numbered>.list-group-item::before {
+    color: #fff;
+}
+
+.ms-2 {
+    color: #b5b5b5;
 }
