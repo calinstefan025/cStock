@@ -14,6 +14,7 @@
     padding: 0.5% 1%;
     margin-left: 2%;
     border-color: #fff;
+    color: #fff;
 }
 
 .gob:hover{
@@ -27,4 +28,8 @@
     color: #b5b5b5;
     font-size: 18px;
     text-align: justify;
+}
+
+.list-group-item {
+    background-color: #b5b5b5;
 }
