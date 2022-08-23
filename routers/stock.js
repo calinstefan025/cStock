@@ -52,6 +52,7 @@ router.get("/:ticker/overview", (req, res) => {
           EVToRevenue: data.EVToRevenue,
           EVToEBITDA: data.EVToEBITDA,
           SharesOutstanding : data.SharesOutstanding,
+          price: data['50DayMovingAverage'],
         }
         res.render("stock", object);
       }
@@ -64,7 +65,7 @@ router.get("/:ticker/api", (req, res) => {
   const urlOverview =
     "https://www.alphavantage.co/query?function=OVERVIEW&symbol=" +
     urlTicker +
-    "&apikey=" +api_key;
+    "&apikey=" + api_key;
   request.get(
     {
       url: urlOverview,
