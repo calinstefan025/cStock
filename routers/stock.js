@@ -52,7 +52,7 @@ router.get("/:ticker/overview", (req, res) => {
           EVToRevenue: data.EVToRevenue,
           EVToEBITDA: data.EVToEBITDA,
           SharesOutstanding : data.SharesOutstanding,
-          price: data['50DayMovingAverage'],
+          symbol: urlTicker,
         }
         res.render("stock", object);
       }

@@ -3,20 +3,27 @@ var score = 0 , PEScore = 0 , analystScore = 0 , opMarginScore = 0 , ROEScore = 
 
 var info = "None";
 var optimumOperatingMargin = 15 ;
+var currentPrice ;
 
 const MarketCapitalization = document.getElementById("MarketCapitalization").innerText;
 const PEGRatio = document.getElementById("PEGRatio").innerText;
 const noShares = document.getElementById("SharesOutstanding").innerText;
 var operatingMargin = document.getElementById("OperatingMarginTTM").innerText * 100;
 var analystTargetPrice = document.getElementById("AnalystTargetPrice").innerText;
-var currentPrice = document.getElementById("price").innerText ;
+var price = document.getElementById("price1");
+var symbol = document.getElementById('symbol').value;
 
-var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate()-1);
-
+fetch('https://api.twelvedata.com/price?symbol=' + symbol + '&apikey=a93bb538a6a94b8fbed92f1b72211166')
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data.price);
+    currentPrice = data.price;
+    price.innerText = Math.floor(currentPrice) ;
+  });
 
 
 function gob() {
+    console.log(currentPrice);
     calcOpMarginScore();
     calcAnalystScore();
     score = opMarginScore + analystScore;
