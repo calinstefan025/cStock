@@ -23,11 +23,22 @@ fetch('https://api.twelvedata.com/price?symbol=' + symbol + '&apikey=a93bb538a6a
 
 
 function gob() {
-    console.log(currentPrice);
     calcOpMarginScore();
     calcAnalystScore();
     score = opMarginScore + analystScore;
-    alert(score)
+    score = Math.floor(score) ;
+
+    let message ;
+    if(score >= (maxScore/4)*3) {
+        message = "UNDERVALUED STOCK (buy this stock)";
+    } else {
+        message = "OVERVALUED STOCK (do not buy this stock)";
+    }
+
+    alert("Operating Margine score: " + opMarginScore + " out of " + maxOpMarginScore + "\n" +
+        "Analyst score: " + analystScore + " out of " + maxAnalystScore + "\n" +
+        "Total score: " + score + " out of " + maxScore + "\n\n" + message
+    )
 }
 
 
@@ -43,13 +54,14 @@ function calcAnalystScore () {
         let diffPer = calcDiffPer(currentPrice , analystTargetPrice);
         // console.log(diffPer);
         if(diffPer > 100) {
-            analystScore = diffPer/10 ;
+            analystScore = 0 ;
             // console.log(analystScore);
         } else {
             analystScore = maxAnalystScore - diffPer ;
             // console.log(analystScore); 
         }
     }
+    
 }
 function calcOpMarginScore() {
     if(operatingMargin > optimumOperatingMargin) {
@@ -58,13 +70,14 @@ function calcOpMarginScore() {
     } else {
         let per = calcDiffPer(operatingMargin , optimumOperatingMargin);
         if(per > 100) {
-            opMarginScore = per/100 ;
+            opMarginScore = 0 ;
             // console.log(opMarginScore);
         } else {
             opMarginScore = maxOpMarginScore - per ;
             // console.log(opMarginScore); 
         }
     }
+    
 }
 
 function calcDiffPer(currentValue , optimumValue ) {
