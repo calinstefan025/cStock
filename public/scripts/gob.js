@@ -52,6 +52,8 @@ function calcPEScore() {
             let diff = PERatio - forwardPERatio ;
             let percentage = calcPer(diff , PERatio) ;
             PEScore = Math.floor(calcPer(percentage , maxPEScore)) ;
+        } else {
+            PEScore = 0 ;
         }
     }
 }
