@@ -19,7 +19,7 @@ fetch('https://api.twelvedata.com/price?symbol=' + symbol + '&apikey=a93bb538a6a
   .then((data) => {
     console.log(data.price);
     currentPrice = data.price;
-    price.innerText = "Current price: " + Math.floor(currentPrice) ;
+    price.innerText = Math.floor(currentPrice) ;
   });
 
 
@@ -45,7 +45,9 @@ function gob() {
 }
 
 function calcPEScore() {
-    if(PEGRatio <= 1.0 || PERatio <= 15) {
+    if(PEGRatio === info || PERatio === info) {
+        PEScore = 0 ;
+    } else if(PEGRatio <= 1.0 || PERatio <= 15) {
         PEScore = maxPEScore ;
     } else {
         if(forwardPERatio < PERatio) {
@@ -63,7 +65,7 @@ function calcAnalystScore () {
     currentPrice = Number(currentPrice);
     analystTargetPrice = Number(analystTargetPrice) ;
   
-    if(currentPrice < analystTargetPrice) {
+    if(currentPrice < analystTargetPrice || analystTargetPrice === info) {
         analystScore = maxAnalystScore ;
     } else {
         let diffPer = calcDiffPer(currentPrice , analystTargetPrice);
@@ -77,7 +79,9 @@ function calcAnalystScore () {
 }
 
 function calcOpMarginScore() {
-    if(operatingMargin > optimumOperatingMargin) {
+    if(operatingMargin === info) {
+        opMarginScore = 0 ;
+    } else if(operatingMargin > optimumOperatingMargin) {
         opMarginScore = maxOpMarginScore ;
     } else {
         let per = calcDiffPer(operatingMargin , optimumOperatingMargin);
