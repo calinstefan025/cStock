@@ -1,12 +1,13 @@
-const maxScore = 1000 , maxPEScore = 200 , maxAnalystScore = 200 , maxOpMarginScore = 100 , maxROEScore = 100 , maxROAScore = 200;
-var score = 0 , PEScore = 0 , analystScore = 0 , opMarginScore = 0 , ROEScore = 0 , ROAScore = 0;
+const maxScore = 1000 , maxPEScore = 200 , maxAnalystScore = 200 , maxOpMarginScore = 100 , maxROEScore = 100 , maxROAScore = 200 , maxGrowthScore = 200;
+var score = 0 , PEScore = 0 , analystScore = 0 , opMarginScore = 0 , ROEScore = 0 , ROAScore = 0 , growthScore = 0 ;
 
-var info = "None";
+var info = "None" , currentPrice;
 var optimumOperatingMargin = 15 ;
-var currentPrice ;
 
 const MarketCapitalization = document.getElementById("MarketCapitalization").innerText;
+const PERatio = document.getElementById("PERatio").innerText;
 const PEGRatio = document.getElementById("PEGRatio").innerText;
+const forwardPERatio = document.getElementById("ForwardPE").innerText;
 const noShares = document.getElementById("SharesOutstanding").innerText;
 var operatingMargin = document.getElementById("OperatingMarginTTM").innerText * 100;
 var analystTargetPrice = document.getElementById("AnalystTargetPrice").innerText;
@@ -18,14 +19,15 @@ fetch('https://api.twelvedata.com/price?symbol=' + symbol + '&apikey=a93bb538a6a
   .then((data) => {
     console.log(data.price);
     currentPrice = data.price;
-    price.innerText = Math.floor(currentPrice) ;
+    price.innerText = "Current price: " + Math.floor(currentPrice) ;
   });
 
 
 function gob() {
     calcOpMarginScore();
     calcAnalystScore();
-    score = opMarginScore + analystScore;
+    calcPEScore();
+    score = opMarginScore + analystScore + PEScore;
     score = Math.floor(score) ;
 
     let message ;
@@ -35,49 +37,59 @@ function gob() {
         message = "OVERVALUED STOCK (do not buy this stock)";
     }
 
-    alert("Operating Margine score: " + opMarginScore + " out of " + maxOpMarginScore + "\n" +
+    alert("Operating Margin score: " + opMarginScore + " out of " + maxOpMarginScore + "\n" +
         "Analyst score: " + analystScore + " out of " + maxAnalystScore + "\n" +
+        "P/E score: " + PEScore + " out of " + maxPEScore + "\n" +
         "Total score: " + score + " out of " + maxScore + "\n\n" + message
     )
 }
 
+function calcPEScore() {
+    if(PEGRatio <= 1.0 || PERatio <= 15) {
+        PEScore = maxPEScore ;
+    } else {
+        if(forwardPERatio < PERatio) {
+            let diff = PERatio - forwardPERatio ;
+            let percentage = calcPer(diff , PERatio) ;
+            PEScore = Math.floor(calcPer(percentage , maxPEScore)) ;
+        }
+    }
+}
 
 function calcAnalystScore () {
     
     currentPrice = Number(currentPrice);
     analystTargetPrice = Number(analystTargetPrice) ;
-    // console.log(currentPrice);
-    // console.log(analystTargetPrice);
+  
     if(currentPrice < analystTargetPrice) {
         analystScore = maxAnalystScore ;
     } else {
         let diffPer = calcDiffPer(currentPrice , analystTargetPrice);
-        // console.log(diffPer);
-        if(diffPer > 100) {
+        if(diffPer >= 100) {
             analystScore = 0 ;
-            // console.log(analystScore);
         } else {
-            analystScore = maxAnalystScore - diffPer ;
-            // console.log(analystScore); 
+            analystScore = Math.floor(maxAnalystScore - diffPer) ; 
         }
     }
     
 }
+
 function calcOpMarginScore() {
     if(operatingMargin > optimumOperatingMargin) {
         opMarginScore = maxOpMarginScore ;
-        // console.log(opMarginScore);
     } else {
         let per = calcDiffPer(operatingMargin , optimumOperatingMargin);
-        if(per > 100) {
+        if(per >= 100) {
             opMarginScore = 0 ;
-            // console.log(opMarginScore);
         } else {
-            opMarginScore = maxOpMarginScore - per ;
-            // console.log(opMarginScore); 
+            opMarginScore = Math.floor(maxOpMarginScore - per) ;
         }
     }
     
+}
+
+function calcPer( val1 , val2) {
+    return (val1/val2)*100 ;
 }
 
 function calcDiffPer(currentValue , optimumValue ) {

@@ -35,9 +35,17 @@
         </div>
       </nav>
       <div class="details">
-        <h1> <span id="price1"></span> <%- include('svg/dollarSign'); %></h1>
+        <h2> <span id="price1" class="color2"></span> <%- include('svg/dollarSign'); %></h2>
         <br>
         <p class="description"><%= description %></p>
+        <br>
+        <h3><span class="color1">Country:</span> <%= Country %></h3>
+        <br>
+        <h3><span class="color1">Exchange:</span> <%= Exchange %></h3>
+        <br>
+        <h3><span class="color1">Sector:</span> <%= Sector %></h3>
+        <br>
+
         <%- include('partials/listGroup'); %>
         <input type="text" id="symbol" name="symbol" style="display:none ;" value="<%=symbol%>">
       </div>

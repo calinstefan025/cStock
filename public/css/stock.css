@@ -3,9 +3,11 @@
 }
 
 .cmpName {
-    color: #f95959;
+    color: #fff;
     font-size: 35px;
     margin-left: 5%;
+    font-weight: 700;
+    line-height: 2;
 }
 
 .gob {
@@ -25,7 +27,7 @@
 
 .details {
     margin: 3% 5%;
-    color: #b5b5b5;
+    color: #dcdcdc;
     font-size: 18px;
     text-align: justify;
 }
@@ -51,5 +53,5 @@ ol {
 }
 
 #Capa_1 {
-    margin-bottom: 1%;
+    margin-bottom: .5%;
 }

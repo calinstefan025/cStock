@@ -53,6 +53,9 @@ router.get("/:ticker/overview", (req, res) => {
           EVToEBITDA: data.EVToEBITDA,
           SharesOutstanding : data.SharesOutstanding,
           symbol: urlTicker,
+          Country: data.Country,
+          Exchange: data.Exchange,
+          Sector: data.Sector,
         }
         res.render("stock", object);
       }
