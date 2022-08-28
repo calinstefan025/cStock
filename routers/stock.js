@@ -3,7 +3,7 @@ var router = express.Router();
 const bodyParser = require("body-parser");
 var request = require("request");
 
-const api_key = process.env.API_KEY;
+const api_key = "3XWA7YP44XQ5VGAH";
 
 router.get("/:ticker/overview", (req, res) => {
   const urlTicker = req.params.ticker;
