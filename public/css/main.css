@@ -4,7 +4,9 @@
 .color2 {
     color: #fb8a8a;
 }
-
+.accent-color{
+    color: #f1f1f1;
+}
 
 body {
     margin: 0;
@@ -162,6 +164,27 @@ nav img {
     cursor: pointer;
 }
 
+.about {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #242424;
+    text-align: center;
+    z-index: 2;
+    padding: 5%;
+}
+
+.about h1 {
+    font-size: 40px;
+    margin-bottom: 10vh;
+}
+
+.about p {
+    text-align: justify;
+}
+
+
 @media (max-width: 800px) {
     nav img {
         width: 100px;
@@ -172,5 +195,13 @@ nav img {
         font-size: 40px;
         margin-bottom: 20%;
     }
-    
+    .about {
+        width: 100%;
+        margin: auto;
+        background-color: transparent;
+    }
+
+    .about p {
+        text-align: center;
+    }
 }
