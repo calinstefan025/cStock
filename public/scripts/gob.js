@@ -125,7 +125,7 @@ function calcROEScore() {
 function calcPEScore() {
     if(PEGRatio === info || PERatio === info) {
         PEScore = 0 ;
-    } else if(PEGRatio <= 1.0) {
+    } else if(PEGRatio <= 1.0 || PERatio < 15) {
         PEScore = maxPEScore ;
     } else {
         if(forwardPERatio < PERatio) {
