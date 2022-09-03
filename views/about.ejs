@@ -1,20 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About cStock</title>
     <%- include('cssRelated/cssLinks'); %>
-</head>
-<body>
+  </head>
+  <body>
     <section id="full-screen">
-        <canvas class="background"></canvas>
-        <div class="about">
-            <h1 class="color1">About us</h1>
-            <p class="accent-color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem eos excepturi molestias? Nemo vero quae voluptatem commodi. Provident obcaecati, illum commodi quos voluptatum expedita ducimus! Aperiam possimus quibusdam ab distinctio tempore officia quo amet alias! Praesentium, iste aliquam, voluptatum, delectus molestiae incidunt ducimus doloremque aspernatur minima quia quidem iure soluta!</p>
-        </div>
+      <canvas class="background"></canvas>
+      <div class="about">
+        <h1 class="color1">About cStock</h1>
+        <p class="accent-color">
+          This tool helps you decide which stocks to invest in by analysing the
+          financial ratios and other financial metrics of the selected company.
+        </p>
+        <br />
+        <p class="accent-color">
+          The algorithm creates a score for each company and the final results
+          can be as follows:
+        </p>
+        <ul class="accent-color" id="score">
+          <li>
+            Score > <span class="color1">750</span> =
+            <span class="c1">Undervalued stock</span>
+          </li>
+          <li>
+            Score >
+            <span class="color1">500</span> and Score <
+            <span class="color1">750</span> = <span class="c2">Good stock</span>
+          </li>
+          <li>
+            Score > <span class="color1">200</span> and Score <
+            <span class="color1">500</span> =
+            <span class="c3">Overvalued stock</span>
+          </li>
+          <li>
+            Score < <span class="color1">200</span> =
+            <span class="c4">Very bad stock</span>
+          </li>
+        </ul>
+        <br />
+        <p class="accent-color">
+          <span style="font-weight: 600" class="c4"> IMPORTANT</span> : The
+          algorithm does not take into consideration insider trades and outside
+          news and factors.
+        </p>
+        <br />
+        <h3 class="accent-color">
+          This is <span class="c4">not </span> financial advice !
+        </h3>
+        <br />
+        <a href="/" class="back"> <%- include('svg/back'); %></a>
+      </div>
     </section>
     <%- include('cssRelated/scripts'); %>
-</body>
+  </body>
 </html>

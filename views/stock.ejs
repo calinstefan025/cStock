@@ -35,27 +35,36 @@
         </div>
       </nav>
       <div class="details">
-        <h2 class="color1">Current price: <span id="price1" style="color: #fff;"></span><%- include('svg/dollarSign'); %></h2>
-        <br>
         <p class="description"><%= description %></p>
-        <br>
+        <br />
+        <h2 class="color1">
+          Current price: <span id="price1" style="color: #fff"></span><%-
+          include('svg/dollarSign'); %>
+        </h2>
+        <br />
         <h3><span class="color1">Country:</span> <%= Country %></h3>
-        <br>
+        <br />
         <h3><span class="color1">Exchange:</span> <%= Exchange %></h3>
-        <br>
+        <br />
         <h3><span class="color1">Sector:</span> <%= Sector %></h3>
-        <br>
+        <br />
 
         <%- include('partials/listGroup'); %>
-        <input type="text" id="symbol" name="symbol" style="display:none ;" value="<%=symbol%>">
+        <input
+          type="text"
+          id="symbol"
+          name="symbol"
+          style="display: none"
+          value="<%=symbol%>"
+        />
       </div>
     </div>
 
     <script src="/scripts/gob.js"></script>
     <script>
-      document.getElementById("gobBTN").addEventListener('click' , () => {
+      document.getElementById("gobBTN").addEventListener("click", () => {
         gob();
-      })
+      });
     </script>
   </body>
 </html>

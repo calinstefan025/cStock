@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cStock</title>
-    <link rel="shortcut icon" href="/static/images/logo_transparent.png" type="image">
+    <link
+      rel="shortcut icon"
+      href="/static/images/logo_transparent.png"
+      type="image"
+    />
 
     <%- include('cssRelated/cssLinks'); %>
   </head>
@@ -13,33 +17,34 @@
     <section id="full-screen">
       <canvas class="background"></canvas>
       <div class="content">
-
         <nav>
           <a href="/"><img src="images/logo_transparent.png" alt="" /></a>
           <div class="nav-links" id="navLinks">
-            <i class="fa fa-times" onclick="hideMenu()"></i>
             <ul>
               <li><a href="/about">About</a></li>
               <li><a href="/contact">Contact</a></li>
             </ul>
           </div>
-          <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
-
 
         <div class="main-cta">
           <h1 class="color1" data-aos="zoom-in">Try cStock now!</h1>
-          <form class='searchBar' id="tickerForm" action="/stock" method="post">
-            <input autocomplete="off" id="searchQueryInput" type="text" name="tickerInput" placeholder="Type symbol here" value="" />
+          <form class="searchBar" id="tickerForm" action="/stock" method="post">
+            <input
+              autocomplete="off"
+              id="searchQueryInput"
+              type="text"
+              name="tickerInput"
+              placeholder="Type symbol here"
+              value=""
+            />
             <button id="searchQuerySubmit" type="submit" name="tickerSubmit">
               <%- include('svg/searchIcon'); %>
             </button>
           </form>
-          
         </div>
       </div>
     </section>
     <%- include('cssRelated/scripts'); %>
-   
   </body>
 </html>

@@ -1,17 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact us</title>
     <%- include('cssRelated/cssLinks'); %>
-</head>
-<body>
+  </head>
+  <body>
     <section id="full-screen">
-        <canvas class="background"></canvas>
-        
+      <canvas class="background"></canvas>
+      <div class="about">
+        <h1 class="color1">Contact Information</h1>
+        <br />
+        <p class="accent-color">
+          <i class="fa fa-map-marker fa-lg color1"></i>
+          <span class="accent2"> Address:</span>
+          <span class="accent">Pâncota Street , Bucharest , Romania</span>
+        </p>
+        <p class="accent-color">
+          <i class="fa fa-envelope fa-lg color1"></i>
+          <span class="accent2"> Email:</span>
+          <span class="accent">contact.calin@gmail.com</span>
+        </p>
+        <br />
+        <br />
+        <div class="socials">
+          <a
+            href="https://www.instagram.com/calin_avr"
+            class="fa fa-instagram"
+            target="_blank"
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/calin-avramoniu-a70393244/"
+            class="fa fa-linkedin"
+            target="_blank"
+          ></a>
+          <a
+            href="https://github.com/calinstefan025"
+            class="fa fa-github"
+            target="_blank"
+          ></a>
+        </div>
+        <br />
+        <a href="/" class="back"> <%- include('svg/back'); %></a>
+      </div>
     </section>
     <%- include('cssRelated/scripts'); %>
-</body>
+  </body>
 </html>
