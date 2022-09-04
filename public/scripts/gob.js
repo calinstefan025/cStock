@@ -114,7 +114,7 @@ function gob() {
       analystScore +
       " out of " +
       maxAnalystScore +
-      "\n\n" +
+      "\n" +
       "Total score: " +
       score +
       " out of " +
