@@ -219,6 +219,11 @@ nav img {
     transition: 0.2s;
 }
 
+.con {
+    margin-right: 5%;
+    margin-left: 1%;
+}
+
 @media (max-width: 800px) {
     nav img {
         width: 100px;

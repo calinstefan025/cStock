@@ -29,6 +29,7 @@
         </button>
         <div class="nav-links" id="navLinks">
           <ul>
+            <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
           </ul>
@@ -37,17 +38,15 @@
       <div class="details">
         <p class="description"><%= description %></p>
         <br />
-        <h4 class="color1">
-          Current price: <span id="price1" style="color: #fff"></span><%-
-          include('svg/dollarSign'); %>
-        </h4>
-        <br />
-        <h4><span class="color1">Country:</span> <%= Country %></h4>
-        <br />
-        <h4><span class="color1">Exchange:</span> <%= Exchange %></h4>
-        <br />
-        <h4><span class="color1">Sector:</span> <%= Sector %></h4>
-        <br />
+        <div class="information">
+          <h4 class="color1">
+            Current price: <span id="price1" style="color: #fff"></span><%-
+            include('svg/dollarSign'); %>
+          </h4>
+          <h4><span class="color1">Country:</span> <%= Country %></h4>
+          <h4><span class="color1">Exchange:</span> <%= Exchange %></h4>
+          <h4><span class="color1">Sector:</span> <%= Sector %></h4>
+        </div>
 
         <%- include('partials/listGroup'); %>
         <input

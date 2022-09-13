@@ -37,7 +37,7 @@ ol {
 }
 
 .list-group-item {
-    background-color: #212534;
+    background-color: #1c1f29;
 }
 
 .list-group-numbered>.list-group-item::before {
@@ -54,4 +54,9 @@ ol {
 
 #Capa_1 {
     margin-bottom: .5%;
+}
+
+.information {
+    display: flex;
+    justify-content: space-evenly;
 }
