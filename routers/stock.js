@@ -5,12 +5,17 @@ var request = require("request");
 
 const api_key = process.env.API_KEY;
 
+function isEmptyObject(obj) {
+  return JSON.stringify(obj) === "{}";
+}
+
 router.get("/:ticker/overview", (req, res) => {
   const urlTicker = req.params.ticker;
   const urlOverview =
     "https://www.alphavantage.co/query?function=OVERVIEW&symbol=" +
     urlTicker +
-    "&apikey=" +api_key;
+    "&apikey=" +
+    api_key;
   request.get(
     {
       url: urlOverview,
@@ -21,7 +26,6 @@ router.get("/:ticker/overview", (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        // res.send(data);
         console.log(data);
         const object = {
           name: data.Name,
@@ -38,7 +42,7 @@ router.get("/:ticker/overview", (req, res) => {
           ProfitMargin: data.ProfitMargin,
           OperatingMarginTTM: data.OperatingMarginTTM,
           ReturnOnAssetsTTM: data.ReturnOnAssetsTTM,
-          ReturnOnEquityTTM:data.ReturnOnEquityTTM,
+          ReturnOnEquityTTM: data.ReturnOnEquityTTM,
           RevenueTTM: data.RevenueTTM,
           GrossProfitTTM: data.GrossProfitTTM,
           DilutedEPSTTM: data.DilutedEPSTTM,
@@ -51,13 +55,17 @@ router.get("/:ticker/overview", (req, res) => {
           PriceToBookRatio: data.PriceToBookRatio,
           EVToRevenue: data.EVToRevenue,
           EVToEBITDA: data.EVToEBITDA,
-          SharesOutstanding : data.SharesOutstanding,
+          SharesOutstanding: data.SharesOutstanding,
           symbol: urlTicker,
           Country: data.Country,
           Exchange: data.Exchange,
           Sector: data.Sector,
+        };
+        if (isEmptyObject(data)) {
+          res.redirect("/");
+        } else {
+          res.render("stock", object);
         }
-        res.render("stock", object);
       }
     }
   );
@@ -68,7 +76,8 @@ router.get("/:ticker/api", (req, res) => {
   const urlOverview =
     "https://www.alphavantage.co/query?function=OVERVIEW&symbol=" +
     urlTicker +
-    "&apikey=" + api_key;
+    "&apikey=" +
+    api_key;
   request.get(
     {
       url: urlOverview,
