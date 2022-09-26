@@ -73,6 +73,11 @@ ol {
     margin-top: 10vh;
 }
 
+.score {
+    color: #f95959;
+    margin-left: 2%;
+}
+
 @media (max-width: 900px) {
     .information {
         display: block;

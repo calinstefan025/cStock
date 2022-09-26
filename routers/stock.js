@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 const bodyParser = require("body-parser");
 var request = require("request");
+var cScore = require("../backend_scripts/main.js");
 
 const api_key = process.env.API_KEY;
 
@@ -27,6 +28,27 @@ router.get("/:ticker/overview", (req, res) => {
         console.log(err);
       } else {
         console.log(data);
+        var score = cScore.calculateScore(
+          data.PERatio,
+          data.PEGRatio,
+          data.ForwardPE,
+          data.OperatingMarginTTM * 100,
+          data.AnalystTargetPrice,
+          data.QuarterlyRevenueGrowthYOY * 100,
+          data.ReturnOnAssetsTTM * 100,
+          data.ReturnOnEquityTTM * 100,
+          data.ProfitMargin * 100
+        );
+        let message;
+        if (score >= 750) {
+          message = "UNDERVALUED STOCK";
+        } else if (score >= 500 && score < 750) {
+          message = "GOOD STOCK";
+        } else if (score > 200 && score < 500) {
+          message = "OVERVALUED STOCK";
+        } else {
+          message = "VERY BAD STOCK";
+        }
         const object = {
           name: data.Name,
           description: data.Description,
@@ -60,6 +82,8 @@ router.get("/:ticker/overview", (req, res) => {
           Country: data.Country,
           Exchange: data.Exchange,
           Sector: data.Sector,
+          score: score,
+          message: message,
         };
         if (isEmptyObject(data)) {
           res.redirect("/");

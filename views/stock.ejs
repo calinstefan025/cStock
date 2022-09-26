@@ -23,10 +23,8 @@
     <div class="content">
       <nav>
         <h1 class="cmpName"><%= name %></h1>
-        <button class="main-btn gob" id="gobBTN">
-          <!-- <%- include('svg/questionMark'); %> -->
-          Good buy ?
-        </button>
+        <!-- <button class="main-btn gob" id="gobBTN">Good buy ?</button> -->
+        <h2 class="score"><%= score %> / 1000 pts (<%= message %>)</h2>
         <div class="nav-links" id="navLinks">
           <ul>
             <li><a href="/">Home</a></li>
@@ -60,12 +58,5 @@
     </div>
 
     <div class="footer">&copy; Copyright cStock 2022</div>
-
-    <script src="/scripts/gob.js"></script>
-    <script>
-      document.getElementById("gobBTN").addEventListener("click", () => {
-        gob();
-      });
-    </script>
   </body>
 </html>
