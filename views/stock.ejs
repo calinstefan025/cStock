@@ -23,15 +23,19 @@
     <div class="content">
       <nav>
         <h1 class="cmpName"><%= name %></h1>
-        <!-- <button class="main-btn gob" id="gobBTN">Good buy ?</button> -->
-        <h2 class="score"><%= score %> / 1000 pts (<%= message %>)</h2>
+
         <div class="nav-links" id="navLinks">
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a class="hidden" href="/about">About</a></li>
+            <li><a class="hidden" href="/contact">Contact</a></li>
           </ul>
         </div>
+        <a href="/" class="back home1"> <%- include('svg/back'); %></a>
+        <h3 class="score">
+          <%= score %> <span class="score-pts">/ 1000</span>
+          <span class="score-msg"><%= message %></span>
+        </h3>
       </nav>
       <div class="details">
         <p class="description"><%= description %></p>

@@ -32,6 +32,17 @@
     text-align: justify;
 }
 
+.nav-links {
+    text-align: left;
+    padding: 0%;
+    margin: 0;
+    margin-left: 3%;
+}
+
+.nav-links ul {
+    margin: 0;
+}
+
 ol {
     margin-top: 8%;
 }
@@ -75,12 +86,41 @@ ol {
 
 .score {
     color: #f95959;
-    margin-left: 2%;
+    border: 2px solid #f95959;
+    padding: 0.7%;
+    border-radius: 50px;
+    margin-right: 5%;
+}
+
+.score-msg {
+    color: #dcdcdc;
+}
+
+.home1 {
+    margin-right: 1%;
+    display: none;
 }
 
 @media (max-width: 900px) {
     .information {
         display: block;
         text-align: center;
+    }
+
+    .score {
+        padding: 2% ;
+    }
+
+    .score-msg , .score-pts{
+        display: none;
+    }
+
+    .nav-links ul {
+        display: none;
+    }
+
+    .home1 {
+        display: block;
+        margin-right: 5%;
     }
 }
