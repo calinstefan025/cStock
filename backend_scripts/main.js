@@ -30,19 +30,6 @@ module.exports = {
       price;
     var optimumOperatingMargin = 15;
 
-    /////////
-    // fetch(
-    //   "https://api.twelvedata.com/price?symbol=" +
-    //     symbol +
-    //     "&apikey=a93bb538a6a94b8fbed92f1b72211166"
-    // )
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log(data.price);
-    //     currentPrice = Math.floor(data.price);
-    //   });
-    /////////
-
     if (profit === info) {
       profitScore = 0;
     } else if (profit >= 15) {
@@ -122,7 +109,16 @@ module.exports = {
     score =
       opMarginScore + PEScore + ROAScore + ROEScore + growthScore + profitScore;
     score = Math.floor(score);
-    return score;
+    var scoreArray = [
+      score,
+      opMarginScore,
+      PEScore,
+      ROAScore,
+      ROEScore,
+      growthScore,
+      profitScore,
+    ];
+    return scoreArray;
   },
 };
 

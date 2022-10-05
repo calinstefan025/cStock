@@ -23,7 +23,33 @@
     <div class="content">
       <nav>
         <h1 class="cmpName"><%= name %></h1>
-
+        <p class="scoreDetails" id="dt1"><%- include('svg/questionMark'); %></p>
+        <div class="popup" id="popup">
+          <h2>Score Details</h2>
+          <div class="pp1">
+            <p>
+              PE Score: <span class="color1"><%= PEScore %></span> out of 150
+            </p>
+            <p>
+              ROA Score: <span class="color1"><%= ROAScore %> </span> out of 200
+            </p>
+            <p>
+              ROE Score: <span class="color1"><%= ROEScore %></span> out of 200
+            </p>
+            <p>
+              Revenue Growth Score:
+              <span class="color1"><%= growthScore %></span> out of 200
+            </p>
+            <p>
+              Profit Margin Score:
+              <span class="color1"><%= profitScore %></span> out of 150
+            </p>
+            <p>
+              Operating Margin Score:
+              <span class="color1"><%= opMarginScore %></span> out of 100
+            </p>
+          </div>
+        </div>
         <div class="nav-links" id="navLinks">
           <ul>
             <li><a href="/">Home</a></li>
@@ -32,6 +58,7 @@
           </ul>
         </div>
         <a href="/" class="back home1"> <%- include('svg/back'); %></a>
+
         <h3 class="score">
           <%= score %> <span class="score-pts">/ 1000</span>
           <span class="score-msg"><%= message %></span>
@@ -63,5 +90,6 @@
 
     <div class="footer">&copy; Copyright cStock 2022</div>
     <script src="/scripts/price.js"></script>
+    <script src="/scripts/popUp.js"></script>
   </body>
 </html>

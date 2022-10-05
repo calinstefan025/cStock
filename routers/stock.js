@@ -40,11 +40,11 @@ router.get("/:ticker/overview", (req, res) => {
           data.ProfitMargin * 100
         );
         let message;
-        if (score >= 750) {
+        if (score[0] >= 750) {
           message = "UNDERVALUED STOCK";
-        } else if (score >= 500 && score < 750) {
+        } else if (score[0] >= 500 && score[0] < 750) {
           message = "GOOD STOCK";
-        } else if (score > 200 && score < 500) {
+        } else if (score[0] > 200 && score[0] < 500) {
           message = "OVERVALUED STOCK";
         } else {
           message = "VERY BAD STOCK";
@@ -82,7 +82,13 @@ router.get("/:ticker/overview", (req, res) => {
           Country: data.Country,
           Exchange: data.Exchange,
           Sector: data.Sector,
-          score: score,
+          score: score[0],
+          opMarginScore: score[1],
+          PEScore: score[2],
+          ROAScore: score[3],
+          ROEScore: score[4],
+          growthScore: score[5],
+          profitScore: score[6],
           message: message,
         };
         if (isEmptyObject(data)) {

@@ -101,6 +101,40 @@ ol {
     display: none;
 }
 
+.scoreDetails {
+    margin-left: 1%;
+    border: 2px solid #dcdcdc;
+    padding: 0.2%;
+    border-radius: 50px;
+    margin-top: .5%;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    background-color: #b5b5b5;
+    z-index: 1;
+    padding: 3%;
+    text-align: justify;
+    border-radius: 5px;
+    background-color: #181818;
+    color: #fff;
+}
+
+.popup h2 {
+    color: #f95959;
+}
+
+.popup .pp1 {
+    margin-top: 50px;
+}
+
+.active {
+    display: block;
+}
+
 @media (max-width: 900px) {
     .information {
         display: block;
@@ -111,7 +145,7 @@ ol {
         padding: 2% ;
     }
 
-    .score-msg , .score-pts{
+    .score-msg , .score-pts , .scoreDetails{
         display: none;
     }
 
@@ -124,3 +158,4 @@ ol {
         margin-right: 5%;
     }
 }
+
